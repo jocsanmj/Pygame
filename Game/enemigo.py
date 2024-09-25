@@ -8,7 +8,7 @@ class Enemigo:
         self.y = y  # Posición en el eje Y.
         self.ancho = 50  # Ancho del enemigo.
         self.alto = 50  # Alto del enemigo.
-        self.velocidad = 0.33  # Velocidad del enemigo.
+        self.velocidad = 5  # Velocidad del enemigo.
         self.color = "purple"  # Color del enemigo.
         
         # Crea un rectángulo para representar el enemigo en pantalla.

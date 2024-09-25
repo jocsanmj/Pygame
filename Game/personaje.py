@@ -8,7 +8,7 @@ class Cubo:
         self.y = y  # Posición en el eje Y.
         self.ancho = 50  # Ancho del cubo.
         self.alto = 50  # Alto del cubo.
-        self.velocidad = 1  # Velocidad del cubo.
+        self.velocidad = 10  # Velocidad del cubo.
         self.color = "red"  # Color del cubo.
         
         # Crea un rectángulo para representar el cubo en pantalla.

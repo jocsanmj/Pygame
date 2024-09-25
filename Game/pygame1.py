@@ -6,9 +6,13 @@ from enemigo import Enemigo  # Importa la clase Enemigo desde el archivo 'enemig
 ANCHO = 1000  # Ancho de la ventana.
 ALTO = 800  # Alto de la ventana.
 VENTANA = pygame.display.set_mode([ANCHO, ALTO])  # Crea la ventana del juego con las dimensiones especificadas.
+FPS = 60  # Define la tasa de cuadros por segundo.
 
 # Inicializa variables del juego.
 jugando = True  # Bandera para controlar el bucle del juego.
+reloj = pygame.time.Clock()  # Crea un objeto reloj para controlar el tiempo.
+tiempo_pasado = 0  # Variable para rastrear el tiempo pasado.
+tiempo_entre_enemigos = 500  # Intervalo entre la aparición de nuevos enemigos en milisegundos.
 cubo = Cubo(100, 100)  # Crea una instancia de la clase Cubo en la posición (100, 100).
 enemigos = []  # Lista para almacenar enemigos.
 
@@ -32,6 +36,8 @@ def gestionar_teclas(teclas):
 
 # Bucle principal del juego.
 while jugando:
+    tiempo_pasado += reloj.tick(FPS)  # Controla la velocidad de fotogramas y actualiza el tiempo pasado.
+
     eventos = pygame.event.get()  # Obtiene todos los eventos que han ocurrido.
     
     # Obtiene el estado de las teclas presionadas.
