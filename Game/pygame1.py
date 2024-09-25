@@ -1,5 +1,6 @@
 import pygame  # Importa el módulo pygame para manejar gráficos y eventos.
 from personaje import Cubo  # Importa la clase Cubo desde el archivo 'personaje.py'.
+from enemigo import Enemigo  # Importa la clase Enemigo desde el archivo 'enemigo.py'.
 
 # Definir el tamaño de la ventana.
 ANCHO = 1000  # Ancho de la ventana.
@@ -9,6 +10,10 @@ VENTANA = pygame.display.set_mode([ANCHO, ALTO])  # Crea la ventana del juego co
 # Inicializa variables del juego.
 jugando = True  # Bandera para controlar el bucle del juego.
 cubo = Cubo(100, 100)  # Crea una instancia de la clase Cubo en la posición (100, 100).
+enemigos = []  # Lista para almacenar enemigos.
+
+# Añade un enemigo en el centro de la parte superior de la ventana.
+enemigos.append(Enemigo(ANCHO / 2, 100))  # Crea una instancia de la clase Enemigo en la posición (ANCHO/2, 100).
 
 # Función para gestionar el movimiento del cubo mediante las teclas W, A, S, D.
 def gestionar_teclas(teclas):
@@ -44,6 +49,11 @@ while jugando:
     
     # Dibuja el cubo en la ventana.
     cubo.dibujar(VENTANA)
+
+    # Dibuja todos los enemigos en la ventana y actualiza su posición.
+    for enemigo in enemigos:
+        enemigo.dibujar(VENTANA)  # Dibuja cada enemigo en la ventana.
+        enemigo.movimiento()  # Actualiza la posición del enemigo.
     
     # Actualiza la pantalla para reflejar los cambios.
     pygame.display.update()
