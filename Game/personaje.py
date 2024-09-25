@@ -16,5 +16,8 @@ class Cubo:
 
     # Método para dibujar el cubo en la ventana.
     def dibujar(self, ventana):
+        # Actualiza la posición del rectángulo con las coordenadas actuales del cubo.
+        self.rect = pygame.Rect(self.x, self.y, self.ancho, self.alto)
+        
         # Dibuja un rectángulo en la ventana con las propiedades del cubo.
         pygame.draw.rect(ventana, self.color, self.rect)
