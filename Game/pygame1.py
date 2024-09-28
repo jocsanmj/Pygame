@@ -2,6 +2,7 @@ import pygame  # Importa el módulo pygame para manejar gráficos y eventos.
 import random  # Importa el módulo random para generar posiciones aleatorias de los enemigos.
 from personaje import Cubo  # Importa la clase Cubo desde el archivo 'personaje.py'.
 from enemigo import Enemigo  # Importa la clase Enemigo desde el archivo 'enemigo.py'.
+from bala import Bala #Importa la clase Bala desde el archivo 'bala.py'.
 pygame.init() # Inicializa todos los módulos de Pygame.
 
 # Definir el tamaño de la ventana.
@@ -20,6 +21,7 @@ tiempo_pasado = 0  # Variable para rastrear el tiempo pasado.
 tiempo_entre_enemigos = 500  # Intervalo entre la aparición de nuevos enemigos en milisegundos.
 cubo = Cubo(ANCHO/2, ALTO-75)  # Crea una instancia de la clase Cubo en la posición (100, 100).
 enemigos = []  # Lista para almacenar enemigos.
+balas = [] # Lista para almacenar las balas
 
 # Añade un enemigo en el centro de la parte superior de la ventana.
 enemigos.append(Enemigo(ANCHO / 2, 100))  # Crea una instancia de la clase Enemigo en la posición (ANCHO/2, 100).
@@ -38,6 +40,13 @@ def gestionar_teclas(teclas):
     # Si se presiona 'D', el cubo se mueve hacia la derecha.
     if teclas[pygame.K_d]:
         cubo.x += cubo.velocidad  # Aumenta la coordenada X para mover el cubo a la derecha.
+    # Si se preciona 'Espacio' se creara una bala
+    if teclas[pygame.K_SPACE]: 
+        crear_bala() #Llamar a la funcion que hace que se creen las balas
+
+# Definimos la funcion que creara las balas
+def crear_bala():
+    balas.append(Bala(cubo.rect.centerx, cubo.rect.centery))
 
 # Bucle principal del juego, se ejecuta mientras el jugador tenga vidas.
 while jugando and vidas > 0:
@@ -84,9 +93,14 @@ while jugando and vidas > 0:
             print(f"Te quedan {vidas} Vidas")  # Muestra el número de vidas restantes.
             enemigos.remove(enemigo)  # Elimina al enemigo que colisionó.
 
-        if enemigo.y + enemigo.alto > ALTO:
-            puntos += 1
-            enemigos.remove(enemigo)
+        if enemigo.y + enemigo.alto > ALTO: #Si el enemigo pasa debajo de la pantalla
+            puntos += 1 #Sumamos un punto
+            enemigos.remove(enemigo) #Eiminamos el cuadro enemigo para dar el punto al jugador 
+
+    # Dibuja todas las balas
+    for bala in balas:
+        bala.dibujar(VENTANA) #Dibuja cada bala en el cubo
+        bala.movimiento()# Actualiza las posiciones de las balas
 
     # Dibuja el texto de vidas en la pantalla.
     VENTANA.blit(texto_vida, (20,20)) # Muestra el número de vidas en la parte superior izquierda.
