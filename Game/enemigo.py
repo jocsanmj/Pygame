@@ -10,6 +10,7 @@ class Enemigo:
         self.alto = 50  # Alto del enemigo.
         self.velocidad = 5  # Velocidad del enemigo.
         self.color = "purple"  # Color del enemigo.
+        self.vida = 3 # vida del enemigos
         
         # Crea un rectángulo para representar el enemigo en pantalla.
         self.rect = pygame.Rect(self.x, self.y, self.ancho, self.alto)
