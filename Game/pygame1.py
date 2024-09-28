@@ -67,6 +67,9 @@ while jugando:
     for enemigo in enemigos:
         enemigo.dibujar(VENTANA)  # Dibuja cada enemigo en la ventana.
         enemigo.movimiento()  # Actualiza la posición del enemigo.
+
+        if pygame.Rect.colliderect(cubo.rect,enemigo.rect): #Verificar si nuestro cubo coliciona con un enemigo
+            quit()#En caso de hacerlo, cerraria el juego
     
     # Actualiza la pantalla para reflejar los cambios.
     pygame.display.update()
