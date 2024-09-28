@@ -14,7 +14,7 @@ jugando = True  # Bandera para controlar el bucle del juego.
 reloj = pygame.time.Clock()  # Crea un objeto reloj para controlar el tiempo.
 tiempo_pasado = 0  # Variable para rastrear el tiempo pasado.
 tiempo_entre_enemigos = 500  # Intervalo entre la aparición de nuevos enemigos en milisegundos.
-cubo = Cubo(100, 100)  # Crea una instancia de la clase Cubo en la posición (100, 100).
+cubo = Cubo(ANCHO/2, ALTO-75)  # Crea una instancia de la clase Cubo en la posición (100, 100).
 enemigos = []  # Lista para almacenar enemigos.
 
 # Añade un enemigo en el centro de la parte superior de la ventana.
@@ -23,11 +23,11 @@ enemigos.append(Enemigo(ANCHO / 2, 100))  # Crea una instancia de la clase Enemi
 # Función para gestionar el movimiento del cubo mediante las teclas W, A, S, D.
 def gestionar_teclas(teclas):
     # Si se presiona 'W', el cubo se mueve hacia arriba.
-    if teclas[pygame.K_w]:
-        cubo.y -= cubo.velocidad  # Reduce la coordenada Y para mover el cubo hacia arriba.
+    #if teclas[pygame.K_w]:
+        #cubo.y -= cubo.velocidad  # Reduce la coordenada Y para mover el cubo hacia arriba.
     # Si se presiona 'S', el cubo se mueve hacia abajo.
-    if teclas[pygame.K_s]:
-        cubo.y += cubo.velocidad  # Aumenta la coordenada Y para mover el cubo hacia abajo.
+    #if teclas[pygame.K_s]:
+        #cubo.y += cubo.velocidad  # Aumenta la coordenada Y para mover el cubo hacia abajo.
     # Si se presiona 'A', el cubo se mueve hacia la izquierda.
     if teclas[pygame.K_a]:
         cubo.x -= cubo.velocidad  # Reduce la coordenada X para mover el cubo a la izquierda.
