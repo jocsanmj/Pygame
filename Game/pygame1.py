@@ -109,6 +109,13 @@ while jugando and vidas > 0:
             puntos += 1 #Sumamos un punto
             enemigos.remove(enemigo) #Eiminamos el cuadro enemigo para dar el punto al jugador 
 
+        for bala in balas:  # Recorre cada bala en la lista de balas.
+            # Verifica si la bala colisiona con el enemigo.
+            if pygame.Rect.colliderect(bala.rect, enemigo.rect):  # Si la colisión entre la bala y el enemigo ocurre.
+                enemigos.remove(enemigo)  # Elimina al enemigo que fue alcanzado por la bala de la lista de enemigos.
+                balas.remove(bala)  # Elimina la bala de la lista de balas ya que impactó en el enemigo.
+
+
     # Dibuja todas las balas
     for bala in balas:
         bala.dibujar(VENTANA) #Dibuja cada bala en el cubo
