@@ -105,7 +105,7 @@ while jugando and vidas > 0:
             print(f"Te quedan {vidas} Vidas")  # Muestra el número de vidas restantes.
             enemigos.remove(enemigo)  # Elimina al enemigo que colisionó.
 
-        if enemigo.y + enemigo.alto > ALTO: #Si el enemigo pasa debajo de la pantalla
+        if enemigo.y > ALTO: #Si el enemigo pasa debajo de la pantalla
             puntos += 1 #Sumamos un punto
             enemigos.remove(enemigo) #Eiminamos el cuadro enemigo para dar el punto al jugador 
 
