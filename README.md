@@ -24,4 +24,4 @@ Para ejecutar este proyecto en tu máquina local, sigue los siguientes pasos:
  
 Asegúrate de tener Python instalado y ejecuta el siguiente comando para instalar Pygame:
    ```bash
-       pip install pygame
+   pip install pygame
