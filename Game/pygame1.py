@@ -1,4 +1,5 @@
 import pygame  # Importa el módulo pygame para manejar gráficos y eventos.
+import random  # Importa el módulo random para generar posiciones aleatorias de los enemigos.
 from personaje import Cubo  # Importa la clase Cubo desde el archivo 'personaje.py'.
 from enemigo import Enemigo  # Importa la clase Enemigo desde el archivo 'enemigo.py'.
 
@@ -37,6 +38,12 @@ def gestionar_teclas(teclas):
 # Bucle principal del juego.
 while jugando:
     tiempo_pasado += reloj.tick(FPS)  # Controla la velocidad de fotogramas y actualiza el tiempo pasado.
+
+    # Verifica si es el momento de crear un nuevo enemigo.
+    if tiempo_pasado > tiempo_entre_enemigos:
+        # Añade un nuevo enemigo en una posición aleatoria en el eje X y fuera de la pantalla en el eje Y.
+        enemigos.append(Enemigo(random.randint(0, ANCHO), -100))
+        tiempo_pasado = 0  # Reinicia el tiempo pasado.
 
     eventos = pygame.event.get()  # Obtiene todos los eventos que han ocurrido.
     
