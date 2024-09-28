@@ -133,4 +133,15 @@ while jugando and vidas > 0:
     # Actualiza la pantalla para reflejar los cambios.
     pygame.display.update()
 
+# Finaliza la ejecución de todos los módulos de Pygame y cierra las ventanas abiertas
+pygame.quit()
+
+# Solicita al jugador que introduzca su nombre mediante la consola
+nombre = input("Introduce tu nombre: ")
+# Abre (o crea si no existe) un archivo de texto llamado 'puntuaciones.txt' en modo de anexado ('a') asegura que se agregue contenido al final del archivo sin sobrescribir los datos existentes
+with open ('puntuaciones.txt', 'a') as archivo:
+    # Escribe en el archivo el nombre del jugador y su puntuación actual, separados por un guion
+    archivo.write(f"{nombre} - {puntos}\n")
+
+
 quit()  # Finaliza pygame cuando el bucle termina.
