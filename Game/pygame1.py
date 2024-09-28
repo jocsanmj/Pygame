@@ -12,6 +12,7 @@ FPS = 60  # Define la tasa de cuadros por segundo.
 # Inicializa variables del juego.
 jugando = True  # Bandera para controlar el bucle del juego.
 reloj = pygame.time.Clock()  # Crea un objeto reloj para controlar el tiempo.
+vidas = 5 # Inicializa el número de vidas del jugador.
 tiempo_pasado = 0  # Variable para rastrear el tiempo pasado.
 tiempo_entre_enemigos = 500  # Intervalo entre la aparición de nuevos enemigos en milisegundos.
 cubo = Cubo(ANCHO/2, ALTO-75)  # Crea una instancia de la clase Cubo en la posición (100, 100).
@@ -35,8 +36,8 @@ def gestionar_teclas(teclas):
     if teclas[pygame.K_d]:
         cubo.x += cubo.velocidad  # Aumenta la coordenada X para mover el cubo a la derecha.
 
-# Bucle principal del juego.
-while jugando:
+# Bucle principal del juego, se ejecuta mientras el jugador tenga vidas.
+while jugando and vidas > 0:
     tiempo_pasado += reloj.tick(FPS)  # Controla la velocidad de fotogramas y actualiza el tiempo pasado.
 
     # Verifica si es el momento de crear un nuevo enemigo.
@@ -68,8 +69,11 @@ while jugando:
         enemigo.dibujar(VENTANA)  # Dibuja cada enemigo en la ventana.
         enemigo.movimiento()  # Actualiza la posición del enemigo.
 
-        if pygame.Rect.colliderect(cubo.rect,enemigo.rect): #Verificar si nuestro cubo coliciona con un enemigo
-            quit()#En caso de hacerlo, cerraria el juego
+        # Verifica si el cubo colisiona con un enemigo.
+        if pygame.Rect.colliderect(cubo.rect,enemigo.rect):  # Si hay colisión entre el cubo y un enemigo.
+            vidas -= 1 # Resta una vida al jugador
+            print(f"Te quedan {vidas} Vidas")  # Muestra el número de vidas restantes.
+            enemigos.remove(enemigo)  # Elimina al enemigo que colisionó.
     
     # Actualiza la pantalla para reflejar los cambios.
     pygame.display.update()
