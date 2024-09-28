@@ -10,6 +10,7 @@ class Cubo:
         self.alto = 50  # Alto del cubo.
         self.velocidad = 10  # Velocidad del cubo.
         self.color = "red"  # Color del cubo.
+        # Carga la imagen del personaje desde el archivo especificado y la escala al tamaño definido (ancho y alto).
         self.imagen = pygame.image.load("Game/img/navePygame.png")
         self.imagen = pygame.transform.scale(self.imagen, (self.ancho, self.alto))
         
@@ -24,4 +25,5 @@ class Cubo:
         # Dibuja un rectángulo en la ventana con las propiedades del cubo.
         #pygame.draw.rect(ventana, self.color, self.rect)
 
+        # Dibuja la imagen del personaje en la ventana en las coordenadas actuales (x, y).
         ventana.blit(self.imagen, (self.x, self.y))

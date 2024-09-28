@@ -11,6 +11,7 @@ class Enemigo:
         self.velocidad = 5  # Velocidad del enemigo.
         self.color = "purple"  # Color del enemigo.
         self.vida = 3 # vida del enemigos
+        # Carga la imagen del enemigo desde el archivo especificado y la escala al tamaño definido (ancho y alto).
         self.imagen = pygame.image.load("Game/img/enemigoPygame.png")
         self.imagen = pygame.transform.scale(self.imagen, (self.ancho, self.alto))
         
@@ -25,6 +26,7 @@ class Enemigo:
         # Dibuja un rectángulo en la ventana con las propiedades del enemigo.
         #pygame.draw.rect(ventana, self.color, self.rect)
 
+        # Dibuja la imagen del enemigo en la ventana en las coordenadas actuales (x, y).
         ventana.blit(self.imagen, (self.x, self.y))
 
 
