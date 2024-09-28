@@ -57,6 +57,9 @@ while jugando and vidas > 0:
     # Renderiza el texto de las vidas en pantalla.
     texto_vida = FUENTE.render(f"Vida: {vidas}", True, "white") # Crea un objeto de texto para mostrar el número de vidas.
 
+    # Renderiza el texto de los puntos en pantalla.
+    texto_puntos = FUENTE.render(f"Puntos: {puntos}", True, "white") # Crea un objeto de texto para mostrar el número de puntos del jugador.
+
     # Llama a la función para gestionar el movimiento del cubo según las teclas presionadas.
     gestionar_teclas(teclas)
     
@@ -83,7 +86,9 @@ while jugando and vidas > 0:
 
     # Dibuja el texto de vidas en la pantalla.
     VENTANA.blit(texto_vida, (20,20)) # Muestra el número de vidas en la parte superior izquierda.
-    
+
+    # Dibuja el texto de puntos en la pantalla.
+    VENTANA.blit(texto_puntos, (20,60)) # Muestra el número de puntos abajo de las vidas
     # Actualiza la pantalla para reflejar los cambios.
     pygame.display.update()
 
