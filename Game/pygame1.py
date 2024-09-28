@@ -2,17 +2,20 @@ import pygame  # Importa el módulo pygame para manejar gráficos y eventos.
 import random  # Importa el módulo random para generar posiciones aleatorias de los enemigos.
 from personaje import Cubo  # Importa la clase Cubo desde el archivo 'personaje.py'.
 from enemigo import Enemigo  # Importa la clase Enemigo desde el archivo 'enemigo.py'.
+pygame.init() # Inicializa todos los módulos de Pygame.
 
 # Definir el tamaño de la ventana.
 ANCHO = 1000  # Ancho de la ventana.
 ALTO = 800  # Alto de la ventana.
 VENTANA = pygame.display.set_mode([ANCHO, ALTO])  # Crea la ventana del juego con las dimensiones especificadas.
 FPS = 60  # Define la tasa de cuadros por segundo.
+FUENTE = pygame.font.SysFont("Comic Sans", 40)
 
 # Inicializa variables del juego.
 jugando = True  # Bandera para controlar el bucle del juego.
 reloj = pygame.time.Clock()  # Crea un objeto reloj para controlar el tiempo.
 vidas = 5 # Inicializa el número de vidas del jugador.
+puntos = 0 # Inicializa el número de puntos del jugador
 tiempo_pasado = 0  # Variable para rastrear el tiempo pasado.
 tiempo_entre_enemigos = 500  # Intervalo entre la aparición de nuevos enemigos en milisegundos.
 cubo = Cubo(ANCHO/2, ALTO-75)  # Crea una instancia de la clase Cubo en la posición (100, 100).
@@ -51,6 +54,9 @@ while jugando and vidas > 0:
     # Obtiene el estado de las teclas presionadas.
     teclas = pygame.key.get_pressed()
 
+    # Renderiza el texto de las vidas en pantalla.
+    texto_vida = FUENTE.render(f"Vida: {vidas}", True, "white") # Crea un objeto de texto para mostrar el número de vidas.
+
     # Llama a la función para gestionar el movimiento del cubo según las teclas presionadas.
     gestionar_teclas(teclas)
     
@@ -74,6 +80,9 @@ while jugando and vidas > 0:
             vidas -= 1 # Resta una vida al jugador
             print(f"Te quedan {vidas} Vidas")  # Muestra el número de vidas restantes.
             enemigos.remove(enemigo)  # Elimina al enemigo que colisionó.
+
+    # Dibuja el texto de vidas en la pantalla.
+    VENTANA.blit(texto_vida, (20,20)) # Muestra el número de vidas en la parte superior izquierda.
     
     # Actualiza la pantalla para reflejar los cambios.
     pygame.display.update()
