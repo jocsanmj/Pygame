@@ -22,6 +22,8 @@ tiempo_entre_enemigos = 500  # Intervalo entre la aparición de nuevos enemigos 
 cubo = Cubo(ANCHO/2, ALTO-75)  # Crea una instancia de la clase Cubo en la posición (100, 100).
 enemigos = []  # Lista para almacenar enemigos.
 balas = [] # Lista para almacenar las balas
+ultima_bala = 0  # Almacena el tiempo en el que se disparó la última bala.
+tiempo_entre_balas = 500  # Define el tiempo en milisegundos que debe pasar entre cada disparo.
 
 # Añade un enemigo en el centro de la parte superior de la ventana.
 enemigos.append(Enemigo(ANCHO / 2, 100))  # Crea una instancia de la clase Enemigo en la posición (ANCHO/2, 100).
@@ -44,9 +46,19 @@ def gestionar_teclas(teclas):
     if teclas[pygame.K_SPACE]: 
         crear_bala() #Llamar a la funcion que hace que se creen las balas
 
-# Definimos la funcion que creara las balas
+# Definimos la función que creará las balas
 def crear_bala():
-    balas.append(Bala(cubo.rect.centerx, cubo.rect.centery))
+    global ultima_bala  # Usamos la variable 'ultima_bala' que se actualizará con el tiempo de la última bala disparada.
+
+    # Verifica si ha pasado suficiente tiempo desde que se disparó la última bala, para disparar una nueva.
+    if pygame.time.get_ticks() - ultima_bala > tiempo_entre_balas:
+        # Si ha pasado suficiente tiempo, se crea una nueva instancia de la clase 'Bala'.
+        # La nueva bala se posiciona en el centro del cubo, tomando las coordenadas 'centerx' y 'centery' del cubo.
+        balas.append(Bala(cubo.rect.centerx, cubo.rect.centery))
+
+        # Actualiza el tiempo de la última bala disparada al tiempo actual.
+        ultima_bala = pygame.time.get_ticks()
+
 
 # Bucle principal del juego, se ejecuta mientras el jugador tenga vidas.
 while jugando and vidas > 0:
