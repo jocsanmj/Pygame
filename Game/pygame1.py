@@ -84,6 +84,10 @@ while jugando and vidas > 0:
             print(f"Te quedan {vidas} Vidas")  # Muestra el número de vidas restantes.
             enemigos.remove(enemigo)  # Elimina al enemigo que colisionó.
 
+        if enemigo.y + enemigo.alto > ALTO:
+            puntos += 1
+            enemigos.remove(enemigo)
+
     # Dibuja el texto de vidas en la pantalla.
     VENTANA.blit(texto_vida, (20,20)) # Muestra el número de vidas en la parte superior izquierda.
 
