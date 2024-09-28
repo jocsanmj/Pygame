@@ -7,3 +7,6 @@ Mary - 12
 & C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 0
 & C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 5
 & C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 18
+& C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 0
+& C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 8
+& C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 4
