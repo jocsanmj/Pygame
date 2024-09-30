@@ -4,6 +4,7 @@ from personaje import Cubo  # Importa la clase Cubo desde el archivo 'personaje.
 from enemigo import Enemigo  # Importa la clase Enemigo desde el archivo 'enemigo.py'.
 from bala import Bala #Importa la clase Bala desde el archivo 'bala.py'.
 pygame.init() # Inicializa todos los módulos de Pygame.
+pygame.mixer.init() #Inicializar el sonido
 
 # Definir el tamaño de la ventana.
 ANCHO = 1000  # Ancho de la ventana.
@@ -11,6 +12,7 @@ ALTO = 800  # Alto de la ventana.
 VENTANA = pygame.display.set_mode([ANCHO, ALTO])  # Crea la ventana del juego con las dimensiones especificadas.
 FPS = 60  # Define la tasa de cuadros por segundo.
 FUENTE = pygame.font.SysFont("Comic Sans", 40)
+SONIDO_DISPARO = pygame.mixer.Sound('Game/song/disparo.wav')
 
 # Inicializa variables del juego.
 jugando = True  # Bandera para controlar el bucle del juego.
@@ -58,6 +60,8 @@ def crear_bala():
 
         # Actualiza el tiempo de la última bala disparada al tiempo actual.
         ultima_bala = pygame.time.get_ticks()
+
+        SONIDO_DISPARO.play()
 
 
 # Bucle principal del juego, se ejecuta mientras el jugador tenga vidas.
