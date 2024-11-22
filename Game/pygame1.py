@@ -41,10 +41,12 @@ def gestionar_teclas(teclas):
         #cubo.y += cubo.velocidad  # Aumenta la coordenada Y para mover el cubo hacia abajo.
     # Si se presiona 'A', el cubo se mueve hacia la izquierda.
     if teclas[pygame.K_a]:
-        cubo.x -= cubo.velocidad  # Reduce la coordenada X para mover el cubo a la izquierda.
+        if cubo.x >= 0: #¨Poner un limite a la izquiera
+            cubo.x -= cubo.velocidad  # Reduce la coordenada X para mover el cubo a la izquierda.
     # Si se presiona 'D', el cubo se mueve hacia la derecha.
     if teclas[pygame.K_d]:
-        cubo.x += cubo.velocidad  # Aumenta la coordenada X para mover el cubo a la derecha.
+        if cubo.x + cubo.ancho <= ANCHO: #Poner un limite a la derecha
+            cubo.x += cubo.velocidad  # Aumenta la coordenada X para mover el cubo a la derecha.
     # Si se preciona 'Espacio' se creara una bala
     if teclas[pygame.K_SPACE]: 
         crear_bala() #Llamar a la funcion que hace que se creen las balas
@@ -74,9 +76,9 @@ while jugando and vidas > 0:
         # Añade un nuevo enemigo en una posición aleatoria en el eje X y fuera de la pantalla en el eje Y.
         enemigos.append(Enemigo(random.randint(0, ANCHO), -100))
         tiempo_pasado = 0  # Reinicia el tiempo pasado.
-        tiempo_entre_enemigos = random.randint(50, tiempo_entre_enemigos_base)
-        if tiempo_entre_enemigos_base > 80:
-            tiempo_entre_enemigos_base -= 20
+        tiempo_entre_enemigos = random.randint(50, tiempo_entre_enemigos_base) #Añadir mas enemigos con forme el tiempo
+        if tiempo_entre_enemigos_base > 80: #Condicion para saber el tiempo jugado
+            tiempo_entre_enemigos_base -= 20 #Se añaden mas enemigo
 
     eventos = pygame.event.get()  # Obtiene todos los eventos que han ocurrido.
     
