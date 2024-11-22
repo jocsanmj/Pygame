@@ -18,3 +18,4 @@ prueba - 70
 & C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 26
 & C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 4
 & C:/Users/Hp/AppData/Local/Programs/Python/Python312/python.exe c:/Users/Hp/Documents/Python/Pygame/Game/pygame1.py - 26
+jocsan - 48
