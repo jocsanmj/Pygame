@@ -21,6 +21,7 @@ vidas = 5 # Inicializa el número de vidas del jugador.
 puntos = 0 # Inicializa el número de puntos del jugador
 tiempo_pasado = 0  # Variable para rastrear el tiempo pasado.
 tiempo_entre_enemigos = 500  # Intervalo entre la aparición de nuevos enemigos en milisegundos.
+tiempo_entre_enemigos_base = 1000
 cubo = Cubo(ANCHO/2, ALTO-75)  # Crea una instancia de la clase Cubo en la posición (100, 100).
 enemigos = []  # Lista para almacenar enemigos.
 balas = [] # Lista para almacenar las balas
@@ -73,6 +74,9 @@ while jugando and vidas > 0:
         # Añade un nuevo enemigo en una posición aleatoria en el eje X y fuera de la pantalla en el eje Y.
         enemigos.append(Enemigo(random.randint(0, ANCHO), -100))
         tiempo_pasado = 0  # Reinicia el tiempo pasado.
+        tiempo_entre_enemigos = random.randint(50, tiempo_entre_enemigos_base)
+        if tiempo_entre_enemigos_base > 80:
+            tiempo_entre_enemigos_base -= 20
 
     eventos = pygame.event.get()  # Obtiene todos los eventos que han ocurrido.
     
