@@ -26,7 +26,7 @@ cubo = Cubo(ANCHO/2, ALTO-75)  # Crea una instancia de la clase Cubo en la posic
 enemigos = []  # Lista para almacenar enemigos.
 balas = [] # Lista para almacenar las balas
 ultima_bala = 0  # Almacena el tiempo en el que se disparó la última bala.
-tiempo_entre_balas = 200  # Define el tiempo en milisegundos que debe pasar entre cada disparo.
+tiempo_entre_balas = 180  # Define el tiempo en milisegundos que debe pasar entre cada disparo.
 
 # Añade un enemigo en el centro de la parte superior de la ventana.
 enemigos.append(Enemigo(ANCHO / 2, 100))  # Crea una instancia de la clase Enemigo en la posición (ANCHO/2, 100).
@@ -78,7 +78,7 @@ while jugando and vidas > 0:
         tiempo_pasado = 0  # Reinicia el tiempo pasado.
         tiempo_entre_enemigos = random.randint(50, tiempo_entre_enemigos_base) #Añadir mas enemigos con forme el tiempo
         if tiempo_entre_enemigos_base > 80: #Condicion para saber el tiempo jugado
-            tiempo_entre_enemigos_base -= 20 #Se añaden mas enemigo
+            tiempo_entre_enemigos_base -= 5 #Se añaden mas enemigo
 
     eventos = pygame.event.get()  # Obtiene todos los eventos que han ocurrido.
     
@@ -124,11 +124,11 @@ while jugando and vidas > 0:
             if pygame.Rect.colliderect(bala.rect, enemigo.rect):  # Si la colisión entre la bala y el enemigo ocurre.
                 enemigo.vida -= 1 #Disminuye la vida del enemigo por cada bala que lo coliciona
                 balas.remove(bala)  # Elimina la bala de la lista de balas ya que impactó en el enemigo.
-                puntos += 1 #Suma un punto por cada enemigo eliminado
 
         # Verifica si la vida del enemigo esta completa
         if enemigo.vida <= 0: # Si la vida del enemigo es menor que 0
             enemigos.remove(enemigo ) # Se elmina al enemigo y se nos suma 1 punto
+            puntos += 3 #Suma puntos por cada enemigo eliminado
 
     # Dibuja todas las balas
     for bala in balas:
