@@ -4,13 +4,14 @@
 
 ## 📝 Descripción
 
-En este juego, controlas un cubo rojo que puede moverse hacia arriba, abajo, izquierda y derecha usando las teclas **W**, **A**, **S**, **D**. A medida que el tiempo avanza, aparecerán enemigos morados que caen desde la parte superior de la pantalla. ¡Evita que el cubo colisione con los enemigos para mantenerte en juego!
+En este juego, controlas una Nave que puede moverse hacia la izquierda y derecha usando las teclas ***A** y **D**. A medida que el tiempo avanza, aparecerán enemigos que caen desde la parte superior de la pantalla. ¡Evita que el cubo colisione con los enemigos para mantenerte en juego, destruyendolos con las balas al precionar la tecla ***ESPACIO***!
 
 ## 🚀 Funcionalidades
 
-- Control del cubo mediante las teclas **W**, **A**, **S**, **D**.
+- Control del cubo mediante las teclas **A** y **D**.
 - Movimiento continuo de enemigos desde la parte superior de la pantalla.
 - Colores personalizables para cubo y enemigos.
+- Disparo tras precionar la tecla ***ESPACIO*** para destruir los enemigos
 
 ## 🖥️ Instalación
 
@@ -27,3 +28,5 @@ Asegúrate de tener Python instalado y ejecuta el siguiente comando para instala
    ```bash
    pip install pygame
    ```
+***Gracias por tu vicita***.
+***Disfruta del juego***
